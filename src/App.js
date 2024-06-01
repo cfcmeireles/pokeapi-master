@@ -1,9 +1,9 @@
+import Home from "./Home";
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      </header>
+      <Home />
     </div>
   );
 }
