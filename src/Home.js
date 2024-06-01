@@ -1,5 +1,6 @@
 import { useState } from "react";
 import useFetch from "./useFetch";
+import pokedexLogo from "./assets/pokedex_logo.png";
 
 const Home = () => {
   const [pokemon, setPokemon] = useState("");
@@ -8,6 +9,7 @@ const Home = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     fetchPokemon(pokemon.toLowerCase());
+    setPokemon("");
   };
 
   const fetchNextPokemon = () => {
@@ -19,40 +21,46 @@ const Home = () => {
   };
 
   return (
-    <main>
-      <div className="h-screen flex flex-col justify-center items-center">
+    <main className="flex justify-center items-center h-screen">
+      <div
+        className="border-sm rounded-md p-4 bg-white w-96 shadow-lg"
+        style={{ height: "550px" }}
+      >
         <form onSubmit={handleSubmit}>
-          <label className="block">Find out more about a Pokemon below!</label>
+          <img src={pokedexLogo} alt="Pokedex logo" className="h-16 mx-auto" />
           <input
             type="text"
             required
-            placeholder="Type pokemon name or pokedex nr"
+            placeholder="Search Pokemon..."
             value={pokemon}
             onChange={(e) => setPokemon(e.target.value)}
-            className="border-2 w-full"
+            className="border-2 rounded w-full pl-3 my-3"
           />
-          <button className="border-2 w-full bg-slate-400">Search</button>
+          <button className="border-2 rounded-md w-full bg-slate-400">
+            Search
+          </button>
         </form>
         {data && (
-          <div className="text-center">
-            <div className="flex">
-              <button
-                onClick={fetchPrevPokemon}
-                className="border-2 bg-slate-400"
-              >
-                Previous
-              </button>
-              <button
-                onClick={fetchNextPokemon}
-                className="border-2 bg-slate-400"
-              >
-                Next
-              </button>
-            </div>
-
-            <h1>{data.name}</h1>
-            <h2>{data.id}</h2>
-            <img src={data.sprites.front_default} alt={data.name} />
+          <div className="text-center p-5">
+            <h1 className="mb-2">Name: {data.name}</h1>
+            <h2>Pokédex number: #{data.id}</h2>
+            <img
+              className="h-64 mx-auto"
+              src={data.sprites.front_default}
+              alt={data.name}
+            />
+            <button
+              onClick={fetchPrevPokemon}
+              className="border-2 rounded-md bg-slate-400"
+            >
+              Previous
+            </button>
+            <button
+              onClick={fetchNextPokemon}
+              className="border-2 rounded-md bg-slate-400"
+            >
+              Next
+            </button>
           </div>
         )}
         {error && <p>{error}</p>}
