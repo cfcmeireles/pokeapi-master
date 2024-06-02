@@ -14,10 +14,12 @@ const Home = () => {
 
   const fetchNextPokemon = () => {
     fetchPokemon(id + 1);
+    setPokemon("");
   };
 
   const fetchPrevPokemon = () => {
     fetchPokemon(id - 1);
+    setPokemon("");
   };
 
   return (
@@ -38,7 +40,7 @@ const Home = () => {
           />
         </form>
         {data && (
-          <div className="text-center p-5">
+          <div data-testid="response" className="text-center p-5">
             <h1 className="mb-2">Name: {data.name}</h1>
             <h2>Pokédex number: #{data.id}</h2>
             <img
@@ -48,12 +50,14 @@ const Home = () => {
             />
             <button
               onClick={fetchPrevPokemon}
+              data-testid="previous"
               className="border-2 rounded-md bg-slate-400"
             >
               Previous
             </button>
             <button
               onClick={fetchNextPokemon}
+              data-testid="next"
               className="border-2 rounded-md bg-slate-400"
             >
               Next
