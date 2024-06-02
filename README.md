@@ -1,6 +1,6 @@
 # Pokédex
 
-This project is a single page application displaying information about pokémons using [pokeapi](https://pokeapi.co/)
+This project is a single page application displaying information about pokémons using [pokeapi](https://pokeapi.co/) and can be viewed at https://carina-pokeapi.netlify.app/
 
 When using this application, the user should be able to:
 
