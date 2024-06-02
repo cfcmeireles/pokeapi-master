@@ -36,7 +36,7 @@ const Home = () => {
             placeholder="Search Pokemon..."
             value={pokemon}
             onChange={handleChange}
-            className="border-4 rounded w-full pl-3 my-3 border-blue-600"
+            className="border-4 rounded w-full pl-3 my-3 border-blue-600 focus:outline-none"
           />
         </form>
         {data && (
