@@ -4,12 +4,12 @@ import pokedexLogo from "./assets/pokedex_logo.png";
 
 const Home = () => {
   const [pokemon, setPokemon] = useState("");
-  const { data, id, error, fetchPokemon } = useFetch();
+  const { data, id, error, fetchPokemon, fetchPokemonList } = useFetch();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    fetchPokemon(pokemon.toLowerCase());
-    setPokemon("");
+  const handleChange = (e) => {
+    const newPokemon = e.target.value;
+    setPokemon(newPokemon);
+    fetchPokemonList(newPokemon.toLowerCase());
   };
 
   const fetchNextPokemon = () => {
@@ -26,19 +26,16 @@ const Home = () => {
         className="border-sm rounded-md p-4 bg-white w-96 shadow-lg"
         style={{ height: "550px" }}
       >
-        <form onSubmit={handleSubmit}>
+        <form>
           <img src={pokedexLogo} alt="Pokedex logo" className="h-16 mx-auto" />
           <input
             type="text"
             required
             placeholder="Search Pokemon..."
             value={pokemon}
-            onChange={(e) => setPokemon(e.target.value)}
+            onChange={handleChange}
             className="border-2 rounded w-full pl-3 my-3"
           />
-          <button className="border-2 rounded-md w-full bg-slate-400">
-            Search
-          </button>
         </form>
         {data && (
           <div className="text-center p-5">
