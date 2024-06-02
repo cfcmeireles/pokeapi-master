@@ -13,7 +13,7 @@ const useFetch = () => {
     try {
       const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=1025");
       if (!res.ok) {
-        setError("Pokemon list not found");
+        setError("Pokemon list not found :(");
       }
       const fetchedData = await res.json();
       // Filter results based on the letters a pokemon name starts with
@@ -25,8 +25,11 @@ const useFetch = () => {
       if (matchingPokemon.length > 0) {
         const matchedPokemonName = matchingPokemon[0].name;
         fetchPokemon(matchedPokemonName);
+        setError(null);
+      } else {
+        setError("Pokemon not found :(");
+        setData(null);
       }
-      setError(null);
     } catch (error) {
       console.error("Error fetching Pokemon list:", error);
       setData(null);
@@ -41,7 +44,7 @@ const useFetch = () => {
     try {
       const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
       if (!res.ok) {
-        setError("Pokemon not found");
+        setError("Pokemon not found :(");
       }
       const fetchedData = await res.json();
       setData(fetchedData);

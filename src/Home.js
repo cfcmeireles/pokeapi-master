@@ -36,7 +36,7 @@ const Home = () => {
             placeholder="Search Pokemon..."
             value={pokemon}
             onChange={handleChange}
-            className="border-2 rounded w-full pl-3 my-3"
+            className="border-4 rounded w-full pl-3 my-3 border-blue-600"
           />
         </form>
         {data && (
@@ -51,20 +51,24 @@ const Home = () => {
             <button
               onClick={fetchPrevPokemon}
               data-testid="previous"
-              className="border-2 rounded-md bg-slate-400"
+              className="border-4 rounded-md bg-yellow-400 w-36 border-blue-600"
             >
               Previous
             </button>
             <button
               onClick={fetchNextPokemon}
               data-testid="next"
-              className="border-2 rounded-md bg-slate-400"
+              className="border-4 rounded-md bg-yellow-400 w-36 border-blue-600"
             >
               Next
             </button>
           </div>
         )}
-        {error && <p>{error}</p>}
+        {error && (
+          <div className="h-2/3 flex justify-center items-center">
+            <p>{error}</p>
+          </div>
+        )}
       </div>
     </main>
   );
