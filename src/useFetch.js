@@ -8,6 +8,7 @@ const useFetch = () => {
   // Fetch pokemon list
   const fetchPokemonList = async (pokemon) => {
     if (!pokemon) {
+      setData(null);
       return;
     }
     try {
