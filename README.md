@@ -18,4 +18,5 @@ Motivations:
 - I love Pokémon! 
 - But more seriously: This was a great project to put my React learnings into practice. I also took the opportunity to learn how to use React's testing library to test the application.
 - The end goal remains the same: To learn more!
-  
+
+My thought process behind building this application can be found here: https://miro.com/app/board/uXjVKAt_6ME=/
