@@ -14,6 +14,11 @@ Technologies used:
 - Tailwind
 - React testing library
 
+To run this project on your local environment:
+- Git clone my repo
+- use "npm install" to install all the dependencies
+- use "npm run start" to run the project locally
+
 Motivations:
 - I love Pokémon! 
 - But more seriously: This was a great project to put my React learnings into practice. I also took the opportunity to learn how to use React's testing library to test the application.
